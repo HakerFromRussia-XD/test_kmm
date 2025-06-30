@@ -13,6 +13,9 @@ interface CounterComponent {
 }
 
 class DefaultCounterComponent: CounterComponent {
+    init {
+        KmmTimer.start()
+    }
     override val state = MutableValue(CounterState(0))
     override fun onIncrease() {
         state.reduce { it.copy(count = it.count + 2) }

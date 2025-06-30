@@ -21,6 +21,8 @@ public class ObservableValue<T : AnyObject> : ObservableObject {
     }
     
     func callFromKmm() {
+        // моя очень сложная логика, которую можно сделать только на ios
+        // например работа с блютузом
         print("callFromKmm")
     }
 }
