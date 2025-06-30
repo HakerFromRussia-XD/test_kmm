@@ -19,4 +19,8 @@ public class ObservableValue<T : AnyObject> : ObservableObject {
     deinit {
         observableValue.unsubscribe(observer: observer!)
     }
+    
+    func callFromKmm() {
+        print("callFromKmm")
+    }
 }
