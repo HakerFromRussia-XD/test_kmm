@@ -1,7 +1,7 @@
 package com.ttypic.proglibcounterapp
 
-import kotlinx.cinterop.ExperimentalForeignApi
-import kotlinx.cinterop.GCUnsafeCall
+import kotlin.experimental.ExperimentalForeignApi
+import kotlin.native.internal.GCUnsafeCall
 
 @OptIn(ExperimentalForeignApi::class)
 @GCUnsafeCall("callFromKmmBridge")
