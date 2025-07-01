@@ -14,14 +14,14 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
-            export("com.arkivanov.decompose:decompose:2.2.3")
+            export("com.arkivanov.decompose:decompose:1.0.0-alpha-07")
         }
     }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api("com.arkivanov.decompose:decompose:2.2.3")
+                api("com.arkivanov.decompose:decompose:1.0.0-alpha-07")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
                 implementation("io.realm.kotlin:library-base:1.5.1")
             }
