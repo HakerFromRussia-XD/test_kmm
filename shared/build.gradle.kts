@@ -29,11 +29,10 @@ kotlin {
                 api("com.arkivanov.decompose:decompose:1.0.0-alpha-07")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
                 implementation("io.realm.kotlin:library-base:1.5.1")
-//                implementation(compose.runtime)
 
-                implementation("androidx.compose.runtime:runtime:2.2.0")
-                implementation("androidx.compose.ui:ui:2.2.0")
-                implementation("androidx.compose.material:material:2.2.0")
+//                implementation("androidx.compose.runtime:runtime:2.2.0")
+//                implementation("androidx.compose.ui:ui:2.2.0")
+//                implementation("androidx.compose.material:material:2.2.0")
             }
         }
         val commonTest by getting {
