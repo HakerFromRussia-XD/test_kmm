@@ -4,8 +4,9 @@ plugins {
 }
 
 kotlin {
-    android()
-    
+    androidTarget()
+
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -22,6 +23,7 @@ kotlin {
             dependencies {
                 api("com.arkivanov.decompose:decompose:1.0.0-alpha-07")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+                implementation("io.realm.kotlin:cinterop-android-debug:1.5.1")
             }
         }
         val commonTest by getting {

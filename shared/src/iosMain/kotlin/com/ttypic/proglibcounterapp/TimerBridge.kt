@@ -1,9 +1,9 @@
 package com.ttypic.proglibcounterapp
 
-import kotlin.native.CName
+import kotlinx.cinterop.ObjCMethod
 
-@CName("callFromKmmBridge")
-private external fun callFromKmmBridge()
+@ObjCMethod("callFromKmmBridge")
+external fun callFromKmmBridge()
 
 actual fun callFromKmm() {
     callFromKmmBridge()
