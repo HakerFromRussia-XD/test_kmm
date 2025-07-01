@@ -4,13 +4,15 @@ plugins {
 }
 
 kotlin {
+    applyDefaultHierarchyTemplate()      // современный вызов шаблона
+
     androidTarget()
-    
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
+
+    val iosX64 = iosX64()
+    val iosArm64 = iosArm64()
+    val iosSimArm64 = iosSimulatorArm64()
+
+    listOf(iosX64, iosArm64, iosSimArm64).forEach {
         it.binaries.framework {
             baseName = "shared"
             export("com.arkivanov.decompose:decompose:1.0.0-alpha-07")
@@ -18,37 +20,29 @@ kotlin {
     }
 
     sourceSets {
+        /* ---------- общие ---------- */
         val commonMain by getting {
             dependencies {
                 api("com.arkivanov.decompose:decompose:1.0.0-alpha-07")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
             }
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
+        val commonTest by getting { dependencies { implementation(kotlin("test")) } }
+
+        /* ---------- Android ---------- */
         val androidMain by getting
         val androidUnitTest by getting
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
+
+        /* ---------- iOS (один единственный блок) ---------- */
+        val iosMain by getting {
+            // dependsOn НЕ трогаем – шаблон уже связал iosMain → commonMain
+            languageSettings.optIn("kotlin.native.internal.InternalForKotlinNative")
+            languageSettings.optIn("kotlinx.cinterop.ExperimentalForeignApi")
+            // сюда же можно добавлять iOS-специфические зависимости
         }
-        val iosX64Test by getting
-        val iosArm64Test by getting
-        val iosSimulatorArm64Test by getting
-        val iosTest by creating {
-            dependsOn(commonTest)
-            iosX64Test.dependsOn(this)
-            iosArm64Test.dependsOn(this)
-            iosSimulatorArm64Test.dependsOn(this)
-        }
+
+        /* iosTest создаёт шаблон, ничего добавлять не нужно
+           если захочешь — пишешь val iosTest by getting { … } */
     }
 }
 
