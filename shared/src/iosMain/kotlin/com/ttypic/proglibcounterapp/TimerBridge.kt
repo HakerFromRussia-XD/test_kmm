@@ -14,9 +14,15 @@ package com.ttypic.proglibcounterapp
 //@kotlinx.cinterop.BetaInteropApi
 //@OptIn(kotlinx.cinterop.BetaInteropApi::class)
 //@ObjCMethod("callFromKmmBridge")
-import kotlinx.cinterop.ObjCMethod
+//import kotlinx.cinterop.ObjCMethod
 
-@ObjCMethod("callFromKmmBridge", encoding = "v@:", isStret=false)
+//@ObjCMethod("callFromKmmBridge", encoding = "v@:", isStret=false)
+//import kotlin.native.internal.InternalForKotlinNative
+//import kotlin.experimental.ExperimentalNativeApi
+//import kotlin.native.CName
+
+//@OptIn(ExperimentalNativeApi::class)
+//@CName("callFromKmmBridge")
 external fun callFromKmmBridge()
 
 actual fun callFromKmm() {
