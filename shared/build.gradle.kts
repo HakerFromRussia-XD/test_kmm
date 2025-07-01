@@ -14,16 +14,16 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
-            export("com.arkivanov.decompose:decompose:1.0.0-alpha-07")
+            export("com.arkivanov.decompose:decompose:2.2.3")
         }
     }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api("com.arkivanov.decompose:decompose:1.0.0-alpha-07")
+                api("com.arkivanov.decompose:decompose:2.2.3")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-                implementation("io.realm.kotlin:cinterop-android-debug:1.5.1")
+                implementation("io.realm.kotlin:library-base:1.5.1")
             }
         }
         val commonTest by getting {
@@ -56,9 +56,9 @@ kotlin {
 
 android {
     namespace = "com.ttypic.proglibcounterapp"
-    compileSdk = 33
+    compileSdk = 34
     defaultConfig {
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
     }
 }

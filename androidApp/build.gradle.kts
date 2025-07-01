@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace = "com.ttypic.proglibcounterapp.android"
-    compileSdk = 33
+    compileSdk = 34
     defaultConfig {
         applicationId = "com.ttypic.proglibcounterapp.android"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
     }
@@ -33,11 +33,11 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("androidx.compose.ui:ui:1.2.1")
-    implementation("androidx.compose.ui:ui-tooling:1.2.1")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.2.1")
-    implementation("androidx.compose.foundation:foundation:1.2.1")
-    implementation("androidx.compose.material:material:1.2.1")
+    implementation("androidx.compose.ui:ui:1.5.3")
+    implementation("androidx.compose.ui:ui-tooling:1.5.3")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.5.3")
+    implementation("androidx.compose.foundation:foundation:1.5.3")
+    implementation("androidx.compose.material:material:1.5.3")
     implementation("androidx.activity:activity-compose:1.5.1")
-    implementation("com.arkivanov.decompose:extensions-compose-jetbrains:1.0.0-alpha-07")
+    implementation("com.arkivanov.decompose:extensions-compose-jetbrains:2.2.3")
 }
